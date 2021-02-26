@@ -24,7 +24,7 @@ Using the plugin is simple
 1. Create a new Test Plan
 2. Add a Thread Group
 3. Add a backend Listener
-4. Specify the host to connect to, port, splunk token
+4. Specify the host to connect to, port, splunk token <br />
 runId	${__UUID()} <br />
 dateTimeAppendFormat	-yyyy-MM-DD <br />
 normalizedTime	2015-01-01 00:00:00.000-00:00 <br />

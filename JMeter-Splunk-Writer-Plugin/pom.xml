@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Jmeter</groupId>
+  <artifactId>JMeter-Splunk-Writer-Plugin</artifactId>
+  <version>1.0.0</version>
+  <name>SplunkPlungin</name>
+  <packaging>jar</packaging>
+  
+  <dependencies><dependency>
+  		<groupId>org.apache.jmeter</groupId>
+  		<artifactId>ApacheJMeter_core</artifactId>
+  		<version>5.3</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.jmeter</groupId>
+  		<artifactId>ApacheJMeter_components</artifactId>
+  		<version>5.3</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.commons</groupId>
+  		<artifactId>commons-lang3</artifactId>
+  		<version>3.11</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.httpcomponents</groupId>
+  		<artifactId>httpclient</artifactId>
+  		<version>4.5.12</version>
+  	</dependency>
+    <dependency>
+  		<groupId>javax.json</groupId>
+  		<artifactId>javax.json-api</artifactId>
+  		<version>1.1.4</version>
+  	</dependency>
+  	<dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>javax.json</artifactId>
+    <version>1.1.4</version>
+</dependency></dependencies>
+  	  	
+  
+<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<plugin>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <configuration>
+        <archive>
+            <manifest>
+                <mainClass>sbsa.com.jmeter.JMeterSplunkBackendListenerClient</mainClass>
+            </manifest>
+        </archive>
+        <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+    </configuration>
+</plugin>
+           </plugins>
+		</pluginManagement>
+</build>
+  
+</project>
+

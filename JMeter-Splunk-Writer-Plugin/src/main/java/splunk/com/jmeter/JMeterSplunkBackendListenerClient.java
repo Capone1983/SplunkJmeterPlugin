@@ -28,8 +28,6 @@ import org.apache.jmeter.config.Arguments;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.visualizers.backend.AbstractBackendListenerClient;
 import org.apache.jmeter.visualizers.backend.BackendListenerContext;
-import org.apache.jorphan.logging.LoggingManager;
-import org.apache.log.Logger;
 
 import splunk.com.jmeter.config.splunk.SplunkConfig;
 
@@ -43,6 +41,7 @@ import javax.json.JsonObject;
  *
  */
 
+@SuppressWarnings("deprecation")
 public class JMeterSplunkBackendListenerClient extends AbstractBackendListenerClient{
 	
     SplunkConfig splunkConfig;
@@ -84,12 +83,12 @@ public class JMeterSplunkBackendListenerClient extends AbstractBackendListenerCl
 	}
     
 
-@SuppressWarnings("deprecation")
 public void handleSampleResults(List<SampleResult> results, BackendListenerContext context) {
 		  
         
 		for(SampleResult result : results) {
 			JsonObject builder = Json.createObjectBuilder()
+			            .add("Label", result.getSampleLabel())
 					    .add("ActiveCount", activecount++)
 			            .add("ResponseTime",result.getTime())
 				        .add("ElapsedTime", result.getTime())
